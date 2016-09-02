@@ -51,7 +51,7 @@ a {
   &:hover,
   &:active,
   &:focus {
-    color: darken($link-color, 10%);
+    color: #999;
   }
 }
 
@@ -123,7 +123,7 @@ input.use-datepicker[type=text] {
 
 @mixin button-primary($args...) {
   @include button-base($args...);
-  color: $color_white;
+  color: $color_white !important;
   background-color: $button-bg;
   border: none;
   &:hover,
@@ -132,34 +132,35 @@ input.use-datepicker[type=text] {
   &:visited:hover,
   &:visited:active,
   &:visited:focus {
-    background-color: darken($button-bg, 10%);
+    background-color: darken($button-bg, 5%);
     color: $color_white;
   }
 }
 
 @mixin button-secondary($args...) {
   @include button-base($args...);
-  background-color: desaturate(darken($color_sand, 10%), 5%);
-  color: $color_black;
+  background-color: #a66067;
+  background-color: desaturate(lighten($button-bg, 15%), 20%);
+  color: $color_white;
   font-weight: normal;
   &:hover,
   &:active,
   &:focus {
-    color: $color_black;
-    background-color: desaturate(darken($color_sand, 20%), 5%);
+    color: $color_white;
+    background-color: desaturate(lighten($button-bg, 5%), 20%);
   }
 }
 
 @mixin button-tertiary($args...) {
   @include button-base($args...);
-  background-color: desaturate(darken($color_sand, 5%), 5%);;
-  color: $color_black;
+  background-color: desaturate(lighten($button-bg, 40%), 15%);
+  color: $color_white;
   font-weight: normal;
   border: 1px solid desaturate(darken($color_sand, 15%),5%);
   &:hover,
   &:active,
   &:focus {
-    background-color: darken($color_sand, 7.5%);
+    background-color: desaturate(lighten($button-bg, 30%), 15%);
     border: 1px solid desaturate(darken($color_sand, 25%),5%);
   }
 }
@@ -613,7 +614,7 @@ a.link_to_this {
 
 .report-this-request {
   @include button-secondary();
-  color: $color_black !important;
+  color: $color_white !important;
   /* Using !important here as a temporary fix for a bad declaration (a:link)
     in Alaveteli core. When this is fixed it can be removed.
   */
@@ -725,7 +726,7 @@ dt {
 .steps__step-number {
   height: 3.5em;
   width: 3.5em;
-  background-color: $color_primary;
+  background-color: $color_secondary;
   box-shadow: 0 1px 2px transparentize($color_black, 0.75);
   padding: 1em;
   border-radius: 100%;
@@ -779,17 +780,12 @@ dt {
 }
 
 .homepage-hero {
-  background-color: $color_neutral_dark;
-  background-image: image-url('homepage-background-small.jpg');
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  color: $color_white;
+  background-color: $color_neutral_light;
+  color: $color_black;
   padding: 2em 0 5em;
   position: relative;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 5em 0 8em;
-    background-image: image-url('homepage-background.jpg');
   }
 
   a {
@@ -797,7 +793,7 @@ dt {
     &:hover,
     &:active,
     &:focus {
-      color: $color_white;
+      color: $color_black;
     }
   }
 
@@ -814,12 +810,13 @@ dt {
 }
 
 .intro__title {
-  color: $color_white;
+  color: $color_black;
   text-shadow: 0 1px 2px transparentize($color_black, 0.7);
 }
 
 .new-request__content {
   background-color: $color_neutral_dark;
+  color: $color_white;
   border-radius: 5px;
   padding: 1.888888889em;
 }
